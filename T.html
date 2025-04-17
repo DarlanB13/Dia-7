@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Feliz Dia dos Namorados</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom right, #ffe0eb, #ffb6d9);
+      color: #4a0033;
+      text-align: center;
+      padding: 2em;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-bottom: 0.2em;
+    }
+
+    p {
+      font-size: 1.2em;
+      margin-bottom: 2em;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5em;
+      justify-items: center;
+      margin-bottom: 3em;
+    }
+
+    .gallery img {
+      width: 220px;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 1em;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    .btn-musica a {
+      background-color: #ff4d88;
+      color: white;
+      padding: 1em 2em;
+      border-radius: 2em;
+      font-size: 1.2em;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+      transition: all 0.3s ease;
+    }
+
+    .btn-musica a:hover {
+      background-color: #ff1a66;
+      transform: scale(1.05);
+    }
+
+    /* ❤️ Corações animados */
+    .heart {
+      position: fixed;
+      top: -50px;
+      font-size: 2em;
+      animation: fall 6s linear infinite;
+      color: #ff3366;
+      pointer-events: none;
+      z-index: 999;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Feliz Nosso Dia (7) ❤️</h1>
+  <p>Uma homenagem cheia de amor, carinho e memórias inesquecíveis!</p>
+
+  <div class="gallery">
+    <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=500&q=80" alt="Casal 1" />
+    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=500&q=80" alt="Casal 2" />
+    <img src="https://images.unsplash.com/photo-1504198453319-5ce911bafcde?auto=format&fit=crop&w=500&q=80" alt="Casal 3" />
+    <img src="https://images.unsplash.com/photo-1510626176961-4b37d0b0a98e?auto=format&fit=crop&w=500&q=80" alt="Casal 4" />
+    <img src="https://images.unsplash.com/photo-1520975916090-3105956dac38?auto=format&fit=crop&w=500&q=80" alt="Casal 5" />
+  </div>
+
+  <div class="btn-musica">
+    <a href="https://www.youtube.com/watch?v=3GPr4zB7Ikg" target="_blank">
+      Ouça nossa música 💖
+    </a>
+  </div>
+
+  <!-- Música de fundo -->
+  <audio autoplay loop>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    Seu navegador não suporta áudio.
+  </audio>
+
+  <!-- Corações animados -->
+  <script>
+    function criarCoraçao() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = Math.random() * 2 + 3 + "s";
+      heart.innerText = "❤️";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 6000);
+    }
+
+    setInterval(criarCoraçao, 300);
+  </script>
+</body>
+</html>
